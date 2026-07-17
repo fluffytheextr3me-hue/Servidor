@@ -1,0 +1,22 @@
+name: Keep Codespace Alive
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+jobs:
+  ping-codespace:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Instalar GitHub CLI
+        run: sudo apt-get install -y gh
+
+      - name: Autenticar
+        run: echo "${{ secrets.GH_PAT }}" | gh auth login --with-token
+
+      - name: Listar codespaces e enviar comando keep-alive
+        run: |
+          CODESPACE_NAME=$(gh codespace list --json name -q '.[0].name')
+          echo "Codespace encontrado: $CODESPACE_NAME"
+          gh codespace ssh -c "$CODESPACE_NAME" -- "echo keep-alive $(date)"
