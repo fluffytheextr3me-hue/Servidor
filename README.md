@@ -1,2 +1,2 @@
 # Servidor
-any
+A Minecraft Server dedicated repo
