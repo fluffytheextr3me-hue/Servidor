@@ -1,2 +1,2 @@
 # Servidor
-A Minecraft Server dedicated repo
+A Minecraft test only Server dedicated repo
