@@ -1,6 +1,6 @@
 name: Keep Codespace Alive
-
-on:
+    - cron: '*/5 * * * *'
+    on:
   schedule:
   
   workflow_dispatch:
