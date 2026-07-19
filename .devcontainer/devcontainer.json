@@ -1,0 +1,8 @@
+{
+  "name": "Servidor Minecraft",
+  "postAttachCommand": {
+    "iniciar-servidor": "tmux new-session -d -s crafty '/workspaces/Servidor/minecraft/run_crafty.sh' || true",
+    "iniciar-playitd": "sudo mkdir -p /run/playit && tmux new-session -d -s playitd 'sudo playitd' || true",
+    "iniciar-playit": "tmux new-session -d -s playit 'playit' || true"
+  }
+}
